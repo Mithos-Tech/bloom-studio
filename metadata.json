@@ -1,0 +1,6 @@
+{
+  "name": "Bloom — Estudio digital",
+  "description": "Bloom es un estudio digital de Inspyrio que diseña marcas, productos y experiencias web que escalan y rinden. Estrategia, diseño y desarrollo a medida.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

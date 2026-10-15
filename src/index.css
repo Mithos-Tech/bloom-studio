@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sistema editorial premium - inspirado en Framer/CreateStudio */
+@layer base {
+  :root {
+    /* Paleta principal */
+    --background: 220 7% 8%;            /* #121315 */
+    --foreground: 0 0% 100%;            /* #FEFFFE */
+
+    --card: 220 7% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 220 7% 9%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Coral - acento principal */
+    --primary: 6 87% 60%;               /* #F25041 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 7% 13%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 7% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 6 87% 60%;                /* coral igual */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100% / 0.08;
+    --input: 220 7% 13%;
+    --ring: 6 87% 60%;
+
+    --radius: 0.5rem;
+
+    /* Gradientes editoriales */
+    --gradient-primary: linear-gradient(135deg, hsl(6 87% 60%) 0%, hsl(14 90% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(220 7% 10%) 0%, hsl(220 7% 13%) 100%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(6 87% 60% / 0.15) 0%, transparent 70%);
+
+    /* Sombras */
+    --shadow-glow: 0 0 40px hsl(6 87% 60% / 0.25);
+    --shadow-card: 0 8px 32px hsl(220 7% 3% / 0.6);
+    --shadow-float: 0 20px 60px hsl(220 7% 3% / 0.8);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  ::selection { background: hsl(6 87% 60% / 0.4); color: hsl(0 0% 100%); }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { @apply bg-background; }
+  ::-webkit-scrollbar-thumb { @apply bg-primary/40 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-primary/60; }
+}
+
+@layer components {
+  /* Alias display para elementos sueltos (nav, 404) */
+  .font-display {
+    font-family: 'Figtree', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  /* === Tipografía editorial — Figtree === */
+  .text-display,
+  h1.text-display {
+    font-family: 'Figtree', system-ui, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  @media (min-width: 640px) {
+    .text-display,
+    h1.text-display { font-size: 3rem; }
+  }
+  @media (min-width: 768px) {
+    .text-display,
+    h1.text-display { font-size: 3.75rem; }
+  }
+  @media (min-width: 1024px) {
+    .text-display,
+    h1.text-display { font-size: 5rem; } /* 80px semibold */
+  }
+
+  /* Instrument Serif — solo en cursiva y regular, acento editorial puntual */
+  .font-serif-display {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  /* Subtítulos Figtree regular (50px en desktop) */
+  .text-subtitle,
+  .section-title {
+    font-family: 'Figtree', system-ui, sans-serif;
+    font-size: 1.875rem; /* 30px en móvil */
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  @media (min-width: 768px) {
+    .text-subtitle,
+    .section-title { font-size: 2.375rem; } /* 38px en tablet */
+  }
+  @media (min-width: 1024px) {
+    .text-subtitle,
+    .section-title { font-size: 3.125rem; } /* 50px regular en desktop */
+  }
+
+  /* Títulos de contenido interno / acordeones / proyectos / tarjetas (28px en desktop) */
+  .text-item-title {
+    font-family: 'Figtree', system-ui, sans-serif;
+    font-size: 1.25rem; /* 20px en móvil */
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  @media (min-width: 768px) {
+    .text-item-title { font-size: 1.5rem; } /* 24px en tablet */
+  }
+  @media (min-width: 1024px) {
+    .text-item-title { font-size: 1.75rem; } /* 28px en desktop */
+  }
+
+  /* Párrafos principales Figtree regular (18px) */
+  .text-paragraph {
+    font-family: 'Figtree', system-ui, sans-serif;
+    font-size: 1.125rem; /* 18px regular */
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.65;
+  }
+
+  /* Contenido descriptivo interno de tarjetas y acordeones (16px) */
+  .text-body-compact {
+    font-family: 'Figtree', system-ui, sans-serif;
+    font-size: 1rem; /* 16px regular */
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.6;
+  }
+
+  .text-mono-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: hsl(0 0% 60%);
+  }
+
+  /* Texto con acento coral */
+  .text-coral { color: hsl(var(--primary)); }
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* === Componentes editoriales === */
+  .section-tick {
+    @apply text-mono-meta inline-flex items-center gap-2;
+  }
+  .section-tick::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: hsl(0 0% 60%);
+  }
+
+  .section-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: hsl(var(--primary));
+    line-height: 1;
+    font-style: normal;
+  }
+
+  /* === Botones pill estilo Framer === */
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-sm normal-case tracking-normal;
+    @apply bg-primary text-primary-foreground transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300;
+    @apply hover:shadow-[0_0_30px_hsl(6_87%_60%/0.5)] hover:scale-[1.02];
+  }
+  .btn-pill svg { @apply w-4 h-4 transition-transform duration-300; }
+  .btn-pill:hover svg { @apply translate-x-1; }
+
+  .btn-pill-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-sm normal-case tracking-normal;
+    @apply bg-transparent text-foreground border border-white/15 transition-[color,background-color,border-color,box-shadow,transform,opacity] duration-300;
+    @apply hover:border-primary hover:text-primary hover:scale-[1.02];
+  }
+  .btn-pill-ghost svg { @apply w-4 h-4 transition-transform duration-300; }
+  .btn-pill-ghost:hover svg { @apply translate-x-1; }
+
+  /* Tag/Pill con acento coral/naranja del proyecto */
+  .tag-pill {
+    @apply text-mono-meta px-3 py-1 rounded-full border border-primary/35 bg-primary/[0.1] text-primary transition-all duration-300 inline-flex items-center;
+  }
+  .tag-pill:hover {
+    @apply border-primary/70 bg-primary/[0.2];
+  }
+
+  /* Card editorial */
+  .glass-card {
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl;
+    transition: border-color .3s ease, transform .3s ease, background .3s ease;
+  }
+  .glass-card:hover {
+    @apply border-primary/40 bg-white/[0.04];
+  }
+
+  /* Botones legacy mantenidos */
+  .btn-hero { @apply btn-pill; }
+  .btn-outline { @apply btn-pill-ghost; }
+  .btn-project { @apply btn-pill; }
+
+  .hover-glow { @apply transition-all duration-300; }
+  .hover-glow:hover { box-shadow: var(--shadow-glow); transform: translateY(-2px); }
+
+  .project-grid { @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8; }
+
+  .section-container { @apply max-w-7xl mx-auto px-6 py-24 md:py-32; }
+
+  /* Framer-style ambient glow placed at top of a section */
+  .section-glow {
+    @apply relative;
+  }
+  .section-glow::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 60%;
+    background: radial-gradient(closest-side, hsl(6 87% 60% / 0.10), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .section-glow > * { position: relative; z-index: 1; }
+
+  /* Hairline divider with coral pulse */
+  .hairline {
+    @apply relative h-px w-full bg-white/[0.06] overflow-hidden;
+  }
+  .hairline::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.6), transparent);
+    transform: translateX(-100%);
+    animation: hairlineSweep 6s ease-in-out infinite;
+  }
+  @keyframes hairlineSweep {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+  }
+
+  /* Card lift refined */
+  .lift-card {
+    @apply transition-all duration-500 ease-out;
+  }
+  .lift-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px -30px hsl(6 87% 60% / 0.25);
+  }
+
+  .ease-framer {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .duration-slow {
+    transition-duration: 1400ms;
+  }
+  .duration-cinematic {
+    transition-duration: 2400ms;
+  }
+
+
+  .section-padding { @apply max-w-7xl mx-auto px-6 py-24 md:py-32; }
+
+  /* Section header editorial */
+  .section-header {
+    @apply flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24;
+  }
+  .section-title {
+    @apply text-subtitle;
+  }
+
+  @media (max-width: 640px) {
+    .section-container, .section-padding { @apply px-4 py-20; }
+    .project-grid { @apply grid-cols-1 gap-6; }
+  }
+}
+
+@layer utilities {
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-glow { animation: glow 2s ease-in-out infinite alternate; }
+  .animate-slide-up { animation: slideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .animate-gradient-shift { animation: gradientShift 15s ease infinite; }
+  .animate-float-particle { animation: floatParticle 20s ease-in-out infinite; }
+  .animate-pulse-slow { animation: pulseSlow 4s ease-in-out infinite; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsl(6 87% 60% / 0.2); }
+  to { box-shadow: 0 0 40px hsl(6 87% 60% / 0.4); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes floatParticle {
+  0%, 100% { transform: translate(0,0) scale(1); opacity: .3; }
+  50% { transform: translate(200px,50px) scale(.8); opacity: .4; }
+}
+@keyframes pulseSlow {
+  0%, 100% { opacity: .3; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.1); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marqueeReverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@keyframes heroZoomIn {
+  from { transform: scale(1.25); opacity: 0.25; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.hero-zoom-in {
+  animation: heroZoomIn 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center center;
+}

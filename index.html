@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon (coral) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#F25041" />
+
+    <!-- SEO Meta Tags (defaults — overridden per route by react-helmet-async) -->
+    <title>Bloom — Estudio digital de diseño y desarrollo | by Inspyrio</title>
+    <meta name="description" content="Bloom es un estudio digital de Inspyrio que diseña marcas, productos y experiencias web que escalan y rinden. Estrategia, diseño y desarrollo a medida." />
+    <meta name="author" content="Inspyrio" />
+    <meta name="keywords" content="estudio digital, diseño web, desarrollo web, branding, Inspyrio, Bloom, UI UX, framer" />
+
+    <!-- Open Graph (fallback for social crawlers that don't execute JS) -->
+    <meta property="og:title" content="Bloom — Estudio digital de diseño y desarrollo | by Inspyrio" />
+    <meta property="og:description" content="Bloom es un estudio digital de Inspyrio que diseña marcas, productos y experiencias web que escalan y rinden. Estrategia, diseño y desarrollo a medida." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://inspyrio-web.lovable.app/" />
+    <meta property="og:site_name" content="Bloom" />
+    <meta property="og:image" content="https://res.cloudinary.com/dk1tkgjpj/image/upload/v1780338694/Open_Bloom_wzcl5n.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bloom — Estudio digital" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@bloomstudio" />
+    <meta name="twitter:title" content="Bloom — Experiencias digitales que conectan, escalan y rinden" />
+    <meta name="twitter:description" content="Estudio de diseño y desarrollo. Creamos historias que la gente recuerda." />
+    <meta name="twitter:image" content="https://res.cloudinary.com/dk1tkgjpj/image/upload/v1780338694/Open_Bloom_wzcl5n.png" />
+
+    <!-- JSON-LD: Organization + WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://inspyrio-web.lovable.app/#organization",
+          "name": "Bloom",
+          "alternateName": "Bloom by Inspyrio",
+          "url": "https://inspyrio-web.lovable.app/",
+          "logo": "https://inspyrio-web.lovable.app/bloom-coral.svg",
+          "description": "Estudio digital de Inspyrio que diseña marcas, productos y experiencias web que escalan y rinden.",
+          "founder": { "@type": "Organization", "name": "Inspyrio" },
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://inspyrio-web.lovable.app/#website",
+          "url": "https://inspyrio-web.lovable.app/",
+          "name": "Bloom",
+          "publisher": { "@id": "https://inspyrio-web.lovable.app/#organization" },
+          "inLanguage": "es"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Performance: preconnect to asset CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+
+    <!-- Hero image preload (LCP) -->
+    <link rel="preload" as="image" fetchpriority="high" media="(max-width: 768px)" imagesrcset="https://res.cloudinary.com/dk1tkgjpj/image/upload/f_auto,q_auto,w_480,c_limit/v1779237070/responsive_cycsiu.webp 480w, https://res.cloudinary.com/dk1tkgjpj/image/upload/f_auto,q_auto,w_640,c_limit/v1779237070/responsive_cycsiu.webp 640w, https://res.cloudinary.com/dk1tkgjpj/image/upload/f_auto,q_auto,w_900,c_limit/v1779237070/responsive_cycsiu.webp 900w" imagesizes="100vw" href="https://res.cloudinary.com/dk1tkgjpj/image/upload/f_auto,q_auto,w_900,c_limit/v1779237070/responsive_cycsiu.webp">
+    <link rel="preload" as="image" fetchpriority="high" media="(min-width: 769px)" imagesrcset="https://res.cloudinary.com/dk1tkgjpj/image/upload/f_auto,q_auto,w_960,c_limit/v1780331434/hero_02_ystidq.webp 960w, https://res.cloudinary.com/dk1tkgjpj/image/upload/f_auto,q_auto,w_1440,c_limit/v1780331434/hero_02_ystidq.webp 1440w, https://res.cloudinary.com/dk1tkgjpj/image/upload/f_auto,q_auto,w_1920,c_limit/v1780331434/hero_02_ystidq.webp 1920w" imagesizes="100vw" href="https://res.cloudinary.com/dk1tkgjpj/image/upload/f_auto,q_auto,w_1920,c_limit/v1780331434/hero_02_ystidq.webp">
+
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
